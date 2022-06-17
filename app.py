@@ -44,10 +44,10 @@ df = get_data_from_excel()
 
 df_selection = df.query(
     "NPD_WELL_BORE_CODE == @NPD_WELL_BORE_CODE"
-#)
+)
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Comportamiento de las ventas")
+st.title(":bar_chart: Producción de Aceite")
 st.markdown("##")
 
 # TOP KPI's
@@ -104,7 +104,7 @@ fig_product_sales.update_layout(
 #)
 
 
-left_column, right_column = st.columns(2)
+left_column, right_column = st.columns(1)
 #left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
 right_column.plotly_chart(fig_product_sales, use_container_width=True)
 
