@@ -23,12 +23,12 @@ def get_data_from_excel():
 df = get_data_from_excel()
 
 # ---- SIDEBAR ----
-#st.sidebar.header("Seleccione:")
-#city = st.sidebar.multiselect(
-#    "Select the City:",
-#    options=df["City"].unique(),
-#    default=df["City"].unique()
-#)
+st.sidebar.header("Seleccione:")
+pozo = st.sidebar.multiselect(
+    "Select Pozo:",
+    options=df["NPD_WELL_BORE_CODE"].unique(),
+    default=df["NPD_WELL_BORE_CODE"].unique()
+)
 
 #customer_type = st.sidebar.multiselect(
 #    "Select the Customer Type:",
@@ -43,7 +43,7 @@ df = get_data_from_excel()
 #)
 
 df_selection = df.query(
-    "NPD_WELL_BORE_CODE == @NPD_WELL_BORE_CODE"
+    "Pozo == @pozo"
 )
 
 # ---- MAINPAGE ----
