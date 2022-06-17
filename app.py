@@ -69,12 +69,12 @@ st.markdown("""---""")
 
 # SALES BY PRODUCT LINE [BAR CHART]
 sales_by_product_line = (
-    df_selection.groupby(by=["NPD_WELL_BORE_CODE"]).sum()[["BORE_OIL_VOL"]].sort_values(by="BORE_OIL_VOL")
+    df_selection.groupby(by=["DATEPRD"]).sum()[["BORE_OIL_VOL"]].sort_values(by="BORE_OIL_VOL")
 )
 fig_product_sales = px.bar(
     sales_by_product_line,
-    x=df["BORE_OIL_VOL"],
-    y=df["NPD_WELL_BORE_CODE"],
+    x="BORE_OIL_VOL",
+    y=sales_by_product_line.index,
     orientation="h",
     title="<b>Producción de Aceite por pozo</b>",
     color_discrete_sequence=["#0083B8"] * len(sales_by_product_line),
