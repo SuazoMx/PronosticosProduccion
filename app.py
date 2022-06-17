@@ -69,7 +69,7 @@ st.markdown("""---""")
 
 # SALES BY PRODUCT LINE [BAR CHART]
 sales_by_product_line = (
-    df_selection.groupby(by=["NPD_WELL_BORE_CODE"]).sum()[["BORE_OIL_VOL"]].sort_values(by="NPD_WELL_BORE_CODE")
+    df_selection.groupby(by=["NPD_WELL_BORE_CODE"]).sum()[["BORE_OIL_VOL"]].sort_values(by="BORE_GAS_VOL")
 )
 fig_product_sales = px.bar(
     sales_by_product_line,
