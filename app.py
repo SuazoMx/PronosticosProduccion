@@ -9,7 +9,7 @@ st.set_page_config(page_title="Pronósticos de producción de aceite y gas", pag
 @st.cache
 def get_data_from_excel():
     df = pd.read_excel(
-        io="final_data.csv",
+        io="final_data.xlsx",
         engine="openpyxl",
         sheet_name="final_data",
         skiprows=3,
