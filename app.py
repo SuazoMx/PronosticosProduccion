@@ -42,12 +42,12 @@ df = get_data_from_excel()
 #    default=df["Gender"].unique()
 #)
 
-#df_selection = df.query(
-#    "City == @city & Customer_type ==@customer_type & Gender == @gender"
+df_selection = df.query(
+    "NPD_WELL_BORE_CODE == @NPD_WELL_BORE_CODE"
 #)
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Pron´sticos de producción de aceite y gas")
+st.title(":bar_chart: Pronósticos de producción de aceite y gas")
 st.markdown("##")
 
 # TOP KPI's
