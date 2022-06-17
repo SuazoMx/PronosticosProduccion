@@ -1,7 +1,7 @@
 
-# Interactive Dashboard with Python – Streamlit
+# Pronósticos de producción de aceite y gas empleando machine learning
 
-Pronosticos de producción built in Python and the Streamlit library to visualize Excel data.
+Para estimar los perfiles se utilizó el algoritmo RANDOM FORESTS, Python y Streamlit library to visualize data.
 
 ## Demo
 Sales Dashboard: https://share.streamlit.io/suazomx/pronosticosproduccion/main/app.py
