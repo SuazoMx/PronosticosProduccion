@@ -73,7 +73,7 @@ sales_by_product_line = (
 )
 fig_product_sales = px.bar(
     sales_by_product_line,
-    x="BORE_OIL_VOL",
+    x=df["BORE_OIL_VOL"],
     y=df["NPD_WELL_BORE_CODE"],
     orientation="h",
     title="<b>Producción de Aceite por pozo</b>",
