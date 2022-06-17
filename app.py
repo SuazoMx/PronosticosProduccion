@@ -16,8 +16,6 @@ def get_data_from_excel():
         usecols="B:L",
         nrows=7879,
     )
-    # Add 'hour' column to dataframe
-    #df["hour"] = pd.to_datetime(df["Time"], format="%H:%M:%S").dt.hour
     return df
 
 df = get_data_from_excel()
@@ -30,81 +28,53 @@ pozo = st.sidebar.multiselect(
     default=df["NPD_WELL_BORE_CODE"].unique()
 )
 
-#customer_type = st.sidebar.multiselect(
-#    "Select the Customer Type:",
-#    options=df["Customer_type"].unique(),
-#    default=df["Customer_type"].unique(),
-#)
-
-#gender = st.sidebar.multiselect(
-#    "Select the Gender:",
-#    options=df["Gender"].unique(),
-#    default=df["Gender"].unique()
-#)
-
 df_selection = df.query("NPD_WELL_BORE_CODE == @pozo")
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Producción de Aceite")
+st.title(":bar_chart: Producción de Gas y Aceite por pozo")
 st.markdown("##")
-
-# TOP KPI's
-#total_sales = int(df_selection["Total"].sum())
-#average_rating = round(df_selection["Rating"].mean(), 1)
-#star_rating = ":star:" * int(round(average_rating, 0))
-#average_sale_by_transaction = round(df_selection["Total"].mean(), 2)
-
-#left_column, middle_column, right_column = st.columns(3)
-#with left_column:
-#    st.subheader("Ventas Totales:")
-#    st.subheader(f"US $ {total_sales:,}")
-#with middle_column:
-#    st.subheader("Average Rating:")
-#    st.subheader(f"{average_rating} {star_rating}")
-#with right_column:
-#    st.subheader("Average Sales Per Transaction:")
-#    st.subheader(f"US $ {average_sale_by_transaction}")
-
 st.markdown("""---""")
 
-# SALES BY PRODUCT LINE [BAR CHART]
-sales_by_product_line = (
+# ACEITE POR POZO[BAR CHART DERECHA]
+aceite_by_pozo = (
     df_selection.groupby(by=["NPD_WELL_BORE_CODE"]).sum()[["BORE_OIL_VOL"]].sort_values(by="BORE_OIL_VOL")
 )
-fig_product_sales = px.bar(
-    sales_by_product_line,
-    x=sales_by_product_line.index,
-    y="BORE_OIL_VOL",
+fig_aceite_pozo = px.bar(
+    aceite_by_pozo,
+    x="BORE_OIL_VOL",
+    y=aceite_by_pozo.index,
     orientation="h",
-    title="<b>Producción de Aceite por pozo</b>",
-    color_discrete_sequence=["#0083B8"] * len(sales_by_product_line),
+    title="<b>Producción de Aceite</b>",
+    color_discrete_sequence=["#0083B8"] * len(aceite_by_pozo),
     template="plotly_white",
 )
-fig_product_sales.update_layout(
+fig_aceite_pozo.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
-    xaxis=(dict(showgrid=False))
+    xaxis=(dict(showgrid=True))
 )
 
-# SALES BY HOUR [BAR CHART]
-#sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
-#fig_hourly_sales = px.bar(
-#    sales_by_hour,
-#    x=sales_by_hour.index,
-#    y="Total",
-#    title="<b>Sales by hour</b>",
-#    color_discrete_sequence=["#0083B8"] * len(sales_by_hour),
-#    template="plotly_white",
-#)
-#fig_hourly_sales.update_layout(
-#    xaxis=dict(tickmode="linear"),
-#    plot_bgcolor="rgba(0,0,0,0)",
-#    yaxis=(dict(showgrid=False)),
-#)
+# GAS POR POZO [BAR CHART IZQUIERDA]
+gas_por_pozo = (
+    df_selection.groupby(by=["NPD_WELL_BORE_CODE"]).sum()[["BORE_GAS_VOL"]].sort_values(by="BORE_GAS_VOL")
+)
+fig_gas_pozo = px.bar(
+    gas_por_pozo,
+    x="BORE_GAS_VOL",
+    y=gas_por_pozo.index,
+    title="<b>Producción de gas</b>",
+    color_discrete_sequence=["#0083B8"] * len(gas_por_pozo),
+    template="plotly_white",
+)
+fig_gas_pozo.update_layout(
+    #xaxis=dict(tickmode="linear"),
+    plot_bgcolor="rgba(0,0,0,0)",
+    yaxis=(dict(showgrid=False)),
+)
 
 
 left_column, right_column = st.columns(2)
-#left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
-right_column.plotly_chart(fig_product_sales, use_container_width=True)
+left_column.plotly_chart(fig_gas_pozo, use_container_width=True)
+right_column.plotly_chart(fig_aceite_pozo, use_container_width=True)
 
 
 # ---- HIDE STREAMLIT STYLE ----
