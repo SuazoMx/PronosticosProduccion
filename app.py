@@ -47,7 +47,7 @@ df_selection = df.query(
 #)
 
 # ---- MAINPAGE ----
-st.title(":bar_chart: Pronosticos de producción de aceite y gas")
+st.title(":bar_chart: Comportamiento de las ventas")
 st.markdown("##")
 
 # TOP KPI's
