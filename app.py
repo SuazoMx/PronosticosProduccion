@@ -42,9 +42,7 @@ pozo = st.sidebar.multiselect(
 #    default=df["Gender"].unique()
 #)
 
-df_selection = df.query(
-    "pozo == @pozo"
-)
+df_selection = df.query("NPD_WELL_BORE_CODE == @pozo")
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Producción de Aceite")
