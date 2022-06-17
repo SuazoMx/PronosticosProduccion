@@ -12,7 +12,7 @@ def get_data_from_excel():
         io="final_data.xlsx",
         engine="openpyxl",
         sheet_name="final_data",
-        skiprows=3,
+        skiprows=0,
         usecols="B:L",
         nrows=7879,
     )
