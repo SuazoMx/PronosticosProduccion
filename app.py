@@ -44,7 +44,7 @@ df = get_data_from_excel()
 
 #df_selection = df.query(
 #    "City == @city & Customer_type ==@customer_type & Gender == @gender"
-)
+#)
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Pron´sticos de producción de aceite y gas")
