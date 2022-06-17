@@ -43,7 +43,7 @@ pozo = st.sidebar.multiselect(
 #)
 
 df_selection = df.query(
-    "Pozo == @pozo"
+    "pozo == @pozo"
 )
 
 # ---- MAINPAGE ----
