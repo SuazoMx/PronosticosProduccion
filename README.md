@@ -8,7 +8,7 @@ Sales Dashboard: https://share.streamlit.io/suazomx/pronosticosproduccion/main/a
 
 ## Screenshot
 
-![Dashboar Screenshot](https://drive.google.com/file/d/17DxAXS06TQ4uJd7g1FenUIWTVl-0Z3ru/view?usp=sharing)
+![Dashboar Screenshot](https://media-exp1.licdn.com/dms/image/C4D22AQEcN8LWbrkOiA/feedshare-shrink_2048_1536/0/1654577656297?e=1658361600&v=beta&t=RePDn3V0sKOTgfcml_9GtggGHzVvoKmzuKF6U1WLzjg)
 
 
 ## Author
