@@ -1,10 +1,10 @@
 
 # Interactive Dashboard with Python – Streamlit
 
-Sales Dashboard built in Python and the Streamlit library to visualize Excel data.
+Pronosticos de producción built in Python and the Streamlit library to visualize Excel data.
 
 ## Demo
-Sales Dashboard: https://dashboard-cis.herokuapp.com/
+Sales Dashboard: https://share.streamlit.io/suazomx/pronosticosproduccion/main/app.py
 
 ## Screenshot
 
@@ -13,16 +13,11 @@ Sales Dashboard: https://dashboard-cis.herokuapp.com/
 
 ## Author
 
-- Sven from Coding Is Fun
-- YouTube: https://youtube.com/c/CodingIsFun
-- Website: https://pythonandvba.com
+- Suazo 2022
+
 
 
 
 ## Feedback
 
-If you have any feedback, please reach out to me at contact@pythonandvba.com
-
-
-![Logo](https://www.pythonandvba.com/banner-img)
-
+If you have any feedback, please reach out to me at salvadorsuazo@gmail.com
