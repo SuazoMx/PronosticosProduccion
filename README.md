@@ -4,7 +4,7 @@
 Para estimar los perfiles se utilizó el algoritmo RANDOM FORESTS, Python y Streamlit library to visualize data.
 
 ## Demo
-Sales Dashboard: https://share.streamlit.io/suazomx/pronosticosproduccion/main/app.py
+Dashboard: https://share.streamlit.io/suazomx/pronosticosproduccion/main/app.py
 
 ## Screenshot
 
